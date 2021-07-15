@@ -1,0 +1,24 @@
+plugins {
+    id 'base'
+}
+
+configurations {
+    resolve
+}
+
+dependencies {
+    (0..4).each { 
+        resolve project(":sub" + it) 
+    } 
+}
+
+task resolveIt {
+    inputs.files configurations.resolve
+    doLast {
+        println configurations.resolve.files
+    }
+}
+
+if (project.hasProperty("break")) {
+    configurations.resolve.resolvedConfiguration    
+}

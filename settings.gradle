@@ -1,0 +1,5 @@
+rootProject.name = "test"
+(0..4).each {
+    include "sub" + it
+}
+include "resolving"
